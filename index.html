@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<style>
+   pre {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: x-large;
+   }
+</style>
+<body>
+   <pre id="pre"></pre>
+</body>
+
+<script type="module" src="./main.js">
+   /** your private crypto key */
+   const cryptoKey = "tyler123"
+
+   /** xor encryption */
+   export function encryptText(text, key) {
+      let result = '';
+      for (let i = 0; i < text.length; i++) {
+         result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      }
+      return result;
+   }
+
+   export function log(what) {
+      document.getElementById("pre").textContent += `${what}
+`;
+   }
+const plainText = "Hello World!"
+   const encrypted = encryptText(plainText, cryptoKey)
+   log(`"${plainText}" encrypted = "${encrypted}"`)
+
+   const decrypted = encryptText(encrypted, cryptoKey)
+   log(`"${encrypted}" decrypted = "${decrypted}"`)
+
+</script>
+</html>
