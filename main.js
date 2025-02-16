@@ -9,9 +9,16 @@ const encrypted = encryptText(rawText, cryptoKey)
 log(`"${rawText}" encrypted = "${encrypted}"
    `)
 
+// create a Base64-encoded ASCII string from a binary string
+const base64 = btoa(encrypted)
+log(`XOR encrypted to base64 = "${base64}", this is best for internet transport`)
+
 const decrypted = encryptText(encrypted, cryptoKey)
 
-log(`"${encrypted}" decrypted = "${decrypted}"
+// decode a string of data which has been encoded using Base64 encoding
+log(`from base64 back to XOR = ${atob(base64)}`)
+
+log(`"XOR ${encrypted}" decrypted = "${decrypted}"
    `)
 
 log(`
