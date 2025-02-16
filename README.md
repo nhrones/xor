@@ -17,3 +17,15 @@ function encryptText(text, key) {
    return result;
 }
 ```
+## How it works
+  - The plaintext is combined with a secret key using the XOR operation. 
+  - The result is encrypted data. 
+  - To decrypt the data, the same key is used again to perform an XOR operation on the encrypted data. 
+
+## Why it's effective
+XOR encryption is a simple and effective way to protect sensitive information.    
+It's also difficult to crack using brute-force methods. 
+
+This repo is served with github pages as:    
+## https://nhrones.github.io/xor/    
+Click the above link to try it!
