@@ -6,8 +6,7 @@ const rawText = "Hello World!"
 
 const encrypted = encryptText(rawText, cryptoKey)
 
-log(`"${rawText}" encrypted = "${encrypted}"
-   `)
+log(`"${rawText}" XOR-encrypted = "${encrypted}"`)
 
 // create a Base64-encoded ASCII string from a binary string
 const base64 = btoa(encrypted)
@@ -21,6 +20,14 @@ log(`from base64 back to XOR = ${atob(base64)}`)
 log(`"XOR ${encrypted}" decrypted = "${decrypted}"
    `)
 
+log(`     Raw    -->        XOR       -->   base64      -->       XOR        -->     raw`)
+log(`${rawText}  ${encrypted}   ${base64}  ${encrypted}    ${rawText}
+   `)
+
 log(`
-   NOTE: decryption is the same function call (xor-method)! Given the same key,
-   it will simply reverse the value returned by the original encryption!`)
+   NOTE: XOR-decryption is the same function call (xor-method)!    
+   Given the same key, it will simply reverse the value returned by the original encryption!
+   `)
+
+log(`We use Base64 for data transmission.    
+Base64 allows binary data to be transmitted over protocols that only support text, like HTTP and SMTP. `)
